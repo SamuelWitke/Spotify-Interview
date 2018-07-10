@@ -11,19 +11,19 @@ function sortByStrings($S,$T) {
 	$S= str_split($S);
 	$cache = array_fill(0,26,0);
 	foreach ($S as $s_letter) {
-		$cache[ord(strtoupper($s_letter)) - ord('A') + 1] += 1;
+		$cache[ord(strtoupper($s_letter)) - ord('A')] += 1;
 	} 
 	$new_string = '';
 	$T = str_split($T);
 	foreach ($T as $t_letter) {
-		while($cache[ord(strtoupper($t_letter)) - ord('A') + 1] > 0) {
+		while($cache[ord(strtoupper($t_letter)) - ord('A')] > 0) {
 			$new_string .= $t_letter;
-			$cache[ord(strtoupper($t_letter)) - ord('A') + 1] -= 1;
+			$cache[ord(strtoupper($t_letter)) - ord('A')] -= 1;
 		}
 	}
 	for($i = 0; $i < 26; $i++) {
 		while($cache[$i] > 0) {
-			$new_string .= chr($i+'97');
+			$new_string .= chr($i+'96');
 			$cache[$i] -= 1;
 		}
 	}
